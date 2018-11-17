@@ -1,2 +1,4 @@
-1
+3
+Monday,CS344,Jack Williams,10,2
+Monday,CS344,Jack Williams,10,2
 Monday,CS344,Jack Williams,10,2

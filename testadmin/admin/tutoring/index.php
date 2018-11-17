@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="css/williamsT.css">
 <?php
     /*include $path . "admin_head2.html";*/ 
+    $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
+    $number = 1; 
+    $startC = "<div class=\"slot-chunk\">";
+    $endC = "</div>";
+    $fname = "testSched.txt";
+    $file = fopen($fname, "r");
+    if($file) {
+        $totalSlots = fgets($file);
+        $totalSlots = str_replace('\r', '', str_replace('\n', '', $totalSlots));
+        for($i = 1; $i <= $totalSlots; ++$i) {
+            $line = fgets($file);
+            $line = explode(',', $line);
+            $day = $line[0];
+            echo $day;
+        }
+    }
 ?>
 
     <!-- BANNER SECTION -->
