@@ -18,7 +18,7 @@
           <li class="has-submenu">
             <a href="#">ADMIN OPTIONS</a>
             <ul class="menu submenu vertical" >
-              <li class="inside-submenu"><a href= <?php print( $path ."admin/news_admin/NEWadmin.php") ?> ><i class="fi-laptop"></i> TUTORING/OFFICE HOURS</a></li>
+              <li class="inside-submenu"><a href= <?php print( $path ."admin/tutoring/index.php") ?> ><i class="fi-laptop"></i> TUTORING/OFFICE HOURS</a></li>
               <li class="inside-submenu"><a href= <?php print($path ."admin/news/") ?>><i class="fi-clipboard-pencil"></i> NEWS</a></li>
             </ul>
           </li>
