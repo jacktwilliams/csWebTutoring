@@ -17,3 +17,8 @@ main {
     width: 95vw;
     margin: 0 auto;
 }
+.slot-chunk {
+    border: black 2px solid;
+    margin-top: 1vw;
+    padding: 2px;
+}

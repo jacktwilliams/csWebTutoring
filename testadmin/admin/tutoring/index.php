@@ -21,7 +21,6 @@
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
                     <div class="slots">
-                        <!--
                         <div class="slot-chunk">
                             <select name="day1">
                                 <option value="Sunday">Sunday</option>
@@ -31,7 +30,7 @@
                                 <option value="Thursday">Thursday</option>
                                 <option value="Friday">Friday</option>
                                 <option value="Saturday">Saturday</option>
-                            </select>
+                            </select><br>
                             Class:<br>
                             <input type="text" name="class1"><br>
                             Tutor:<br>
@@ -41,7 +40,6 @@
                             End Time:<br>
                             <input type="text" name="end1"><br>
                         </div>
-                        -->
                     </div>
                 </div>
                 <div class="day-col col" id="Mon">
