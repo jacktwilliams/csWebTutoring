@@ -39,3 +39,14 @@ $(".add-button").click((event) => {
     slotContainer.append(addButton);
 });
 
+$(".remove-slot").click((event) => {
+    /*
+    var allConts = $(".chunk-cont");
+    console.log(allConts);
+    for(var i = 0; i < allConts.size(); ++i) {
+        console.log(allConts[i]);
+        $(allConts[i]).$(event.target).remove();
+    }
+    */
+})
+

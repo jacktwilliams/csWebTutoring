@@ -12,8 +12,8 @@
     <script type="text/javascript" src="js/adminP.js" defer></script>
 <?php
     /*include $path . "admin_head2.html";*/
-    define("STARTC", "<div class=\"slot-chunk\">");
-    define("ENDC", "</div>");
+    define("STARTC", "<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">");
+    define("ENDC", "</div></div>");
     define("DAY", 0);
     define("CLASSN", 1);
     define("TUTOR", 2);
