@@ -4,7 +4,7 @@
 }
 .day-col {
     border-right: black 2px solid;
-    height: 800px;
+    min-height: 200px; /*Don't collapse on mobile when column takes full screen.*/
 }
 #Sat {
     border-right: 0px;
