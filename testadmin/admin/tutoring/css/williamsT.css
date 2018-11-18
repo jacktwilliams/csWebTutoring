@@ -5,6 +5,9 @@
 .day-col {
     border-right: black 2px solid;
     min-height: 200px; /*Don't collapse on mobile when column takes full screen.*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #Sat {
     border-right: 0px;
@@ -21,4 +24,8 @@ main {
     border: black 2px solid;
     margin-top: 1vw;
     padding: 2px;
+}
+.add-button {
+    margin-top: 10px;
+    align-self: center;
 }
