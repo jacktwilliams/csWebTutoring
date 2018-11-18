@@ -69,11 +69,12 @@
 
     <main>
         <div class="container-fluid" id="schedule-container">
+            <form>
             <div class="row">
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
                     <div class="slots">
-
+                        <?php echo($slotChunks["Sunday"]); ?>
                     </div>
                 </div>
                 <div class="day-col col" id="Mon">
@@ -85,34 +86,36 @@
                 <div class="day-col col" id="Tue">
                     <div class="day-name">Tuesday</div>
                     <div class="slots">
-                        
+                        <?php echo($slotChunks["Tuesday"]); ?>
                     </div>
                 </div>          
                 <div class="day-col col" id="Wed">
                     <div class="day-name">Wednesday</div>
                     <div class="slots">
-                        
+                        <?php echo($slotChunks["Wednesday"]); ?>
                     </div>
                 </div>
                 <div class="day-col col" id="Thu">
                     <div class="day-name">Thursday</div>
                     <div class="slots">
-
+                        <?php echo($slotChunks["Thursday"]); ?>
                     </div>
                 </div>
                 <div class="day-col col" id="Fri">
                     <div class="day-name">Friday</div>
                     <div class="slots">
-                        
+                        <?php echo($slotChunks["Friday"]); ?>
                     </div>
                 </div>
                 <div class="day-col col" id="Sat">
                     <div class="day-name">Saturday</div>
                     <div class="slots">
-                        
+                        <?php echo($slotChunks["Saturday"]); ?>
                     </div>
                 </div>
             </div>
+            <input type="submit" value="Save">
+            </form>
         </div>
     </main>
 
