@@ -37,7 +37,7 @@ for($i = 1; $i <= $NumberEvents; $i++){
         }
 
     }
-
+    echo "Written tutor dates to file.";
     fclose($Fhandle);
 
 ?>
