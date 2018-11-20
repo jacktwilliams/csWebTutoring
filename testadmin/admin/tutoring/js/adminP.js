@@ -1,3 +1,4 @@
+//Author: Jack Williams
 "use strict";
 var slotNum = $("select").size();
 var options = {"Sun" : "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" +
