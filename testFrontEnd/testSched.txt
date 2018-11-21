@@ -1,0 +1,9 @@
+Monday,CS344,Jack Williams,10:00am,2:00pm
+Monday,CS344,Will Eberhard,10:00am,2:00pm
+Sunday,CS344,Jim jimmy,10:00am,2:00pm
+Tuesday,CS250,Frank Poopins,3:00pm,5:00pm
+Wednesday,CS375,Assembler Johnson,8:00am,5:00pm
+Thursday,CS313,Talia Nettington,9:00am,10:00am
+Friday,CS234,Bob Bonger,2:00pm,3:00pm
+Saturday,CS275,Pipi Hogan,4:00pm,5:00pm
+Monday,CS101,Cat Scratch,12:00pm,5:00pm
