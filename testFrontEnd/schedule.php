@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="css/schedule.css">
     </head>
-    <body>
+    <body id="body1">
         <?php 
         //used for the order of the data in a line
         define("DAY", 0);
@@ -16,8 +16,8 @@
         define("STARTT", 3);
         define("ENDT", 4);
         //this is for the intial part of the chunk. Start Chunk/end chunk
-        define("STARTC", "<div class='timeBox'>");
-        define("ENDC", "</div>");
+        //define("STARTC", "<div class='timeBox'>");
+        //define("ENDC", "</div>");
         
         $classes = array();
         //read file here
@@ -54,7 +54,11 @@
                 $startT = $line[STARTT];
                 $endT = $line[ENDT];
                 //makes a new chunk (box)
-                $newChunk = STARTC . "<div>$tutor</div><div>$classN</div><div>$startT - $endT</div>" . ENDC;
+                $newChunk = "<div class='timeBox $classN'>" . 
+                                "<div>$tutor</div>" . 
+                                "<div>$classN</div>" .
+                                "<div>$startT - $endT</div>" .
+                            "</div>";
                 //stores all boxes under a Day array
                 $slotChunks[$line[DAY]] .= $newChunk; 
             }//end of loop
@@ -64,9 +68,9 @@
         }//enf of if
         ?>
         
-        <form id="dropdown1">
+        <form>
             <!-- Idealy we want to read classes from a file -->
-            <select name="users">
+            <select name="users" id="dropdown1" onchange="updateTable(this.value)">
                 <option value="">Select a Class:</option>
                 //this will display only classes that have tutors
                 <?php
@@ -76,6 +80,7 @@
                 ?>
             </select>
         </form>
+      
         <div id="schedule-container">
             <div class="row">
                  <div class="day-col col" id="Sun">
@@ -122,5 +127,13 @@
                 </div>
             </div>
         </div>
+        
+        <?php
+        foreach($slotChunks as $header => $desc){
+           // echo "<p>$header $desc</p>";
+        }
+        ?>
+        
+        <script type="text/javascript" src="js/schedule.js"></script>
     </body>
 </html>
