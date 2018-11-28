@@ -29,20 +29,27 @@ function regHandlers(event) {
     $("option").click(changeDay);
 }
 
+function regHandlersForElem(elem) {
+
+}
+
 function addSlot(event) {
     var numSlots = $("select").size() + 1;
     var addButton = $(event.target);
     var day = addButton.attr('class').substr(11); //read class which comes after 'add-button'.
     addButton.remove(); //we will remove the button, add the empty time-slot and put the button at the bottom
     var slotContainer = $("#" + day + " .slots");
-    slotContainer.append("<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">" + "<select name=\"day" + numSlots + "\">" +
-        options[day] + "</select><br>" + "Class:<br><input type=\"text\" name=\"class" + numSlots + "\"><br>" +
-        "Tutor:<br><input type=\"text\" name=\"tutor" + numSlots + "\"><br>" +
-        "Start Time:<br><input type=\"text\" name=\"start" + numSlots + "\"><br>" +
-        "End Time:<br><input type=\"text\" name=\"end" + numSlots + "\"><br>" + "</div>"
-    );
-    slotContainer.append(addButton);
-    regHandlers();
+    var newSlot = $("<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">" + "<select name=\"day" + numSlots + "\">" +
+    options[day] + "</select><br>" + "Class:<br><input type=\"text\" name=\"class" + numSlots + "\"><br>" +
+    "Tutor:<br><input type=\"text\" name=\"tutor" + numSlots + "\"><br>" +
+    "Start Time:<br><input type=\"text\" name=\"start" + numSlots + "\"><br>" +
+    "End Time:<br><input type=\"text\" name=\"end" + numSlots + "\"><br>" + "</div>");
+
+    newSlot.find(".remove-slot").click(removeSlot);
+    newSlot.find("option").click(changeDay);
+
+    slotContainer.append(newSlot);
+    slotContainer.append(addButton.click(addSlot));
 }
 
 function removeSlot(event) {

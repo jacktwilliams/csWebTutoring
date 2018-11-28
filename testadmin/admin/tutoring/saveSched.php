@@ -41,3 +41,4 @@ for($i = 1; $i <= $NumberEvents; $i++){
     fclose($Fhandle);
 
 ?>
+Did it!
