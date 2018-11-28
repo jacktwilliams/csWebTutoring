@@ -67,72 +67,67 @@
             sort($classes);
         }//enf of if
         ?>
-        
-        <form>
-            <!-- Idealy we want to read classes from a file -->
-            <select name="users" id="dropdown1" onchange="updateTable(this.value)">
-                <option value="">Select a Class:</option>
-                //this will display only classes that have tutors
-                <?php
-                foreach($classes as $value){
-                    echo "<option value=$value>$value</option>";
-                }
-                ?>
-            </select>
-        </form>
-      
-        <div id="schedule-container">
-            <div class="row">
-                 <div class="day-col col" id="Sun">
-                    <div class="day-name">Sunday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Sunday"]); ?>
+        <div id="all">
+            <h1>Tutoring Schedule</h1>
+            <form id="form1">
+                <select name="users" id="dropdown1" onchange="updateTable(this.value)">
+                    <option value="">Select a Class:</option>
+                    //this will display only classes that have tutors
+                    <?php
+                    foreach($classes as $value){
+                        echo "<option value=$value>$value</option>";
+                    }
+                    ?>
+                </select>
+            </form>
+
+            <div id="schedule-container">
+                <div class="row">
+                     <div class="day-col col" id="Sun">
+                        <div class="day-name">Sunday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Sunday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Mon">
-                    <div class="day-name">Monday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Monday"]); ?>
+                      <div class="day-col col" id="Mon">
+                        <div class="day-name">Monday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Monday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Tue">
-                    <div class="day-name">Tuesday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Tuesday"]); ?>
+                      <div class="day-col col" id="Tue">
+                        <div class="day-name">Tuesday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Tuesday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Wed">
-                    <div class="day-name">Wednesday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Wednesday"]); ?>
+                      <div class="day-col col" id="Wed">
+                        <div class="day-name">Wednesday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Wednesday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Thu">
-                    <div class="day-name">Thursday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Thursday"]); ?>
+                      <div class="day-col col" id="Thu">
+                        <div class="day-name">Thursday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Thursday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Fri">
-                    <div class="day-name">Friday</div>
-                    <div class="slots">
-                        <?php echo($slotChunks["Friday"]); ?>
+                      <div class="day-col col" id="Fri">
+                        <div class="day-name">Friday</div>
+                        <div class="slots">
+                            <?php echo($slotChunks["Friday"]); ?>
+                        </div>
                     </div>
-                </div>
-                  <div class="day-col col" id="Sat">
-                    <div class="day-name">Saturday</div>
-                    <div class="slots">
-                       <?php echo($slotChunks["Saturday"]); ?>
+                      <div class="day-col col" id="Sat">
+                        <div class="day-name">Saturday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Saturday"]); ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <?php
-        foreach($slotChunks as $header => $desc){
-           // echo "<p>$header $desc</p>";
-        }
-        ?>
         
         <script type="text/javascript" src="js/schedule.js"></script>
     </body>
