@@ -43,13 +43,12 @@
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-    $fname = "testSched.txt";
+    $fname = "Schedule.txt";
     $file = fopen($fname, "r");
+    $i = 1;
     if($file) {
-        $totalSlots = fgets($file);
-        $totalSlots = str_replace('\r', '', str_replace('\n', '', $totalSlots));
-        for($i = 1; $i <= $totalSlots; ++$i) {
-            $line = fgets($file);
+        $line = fgets($file);
+        while(!feof($file)) {
             $line = explode(',', $line);
             $day = $line[DAY];
             $classN = $line[CLASSN];
@@ -62,6 +61,8 @@
                 "Start Time:<br><input type=\"text\" value=\"$startT\" name=\"start$i\"><br>" . 
                 "End Time:<br><input type=\"text\" value=\"$endT\" name=\"end$i\"><br>" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
+            $line = fgets($file);
+            ++$i;
         }
     }
 ?>
