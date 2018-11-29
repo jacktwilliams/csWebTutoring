@@ -1,3 +1,4 @@
+<!-- Author: Jack Williams -->
 <?php
     $path = "../../";
     /*include $path . "admin_head1.html";*/ 
@@ -42,26 +43,26 @@
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-    $number = 1; 
-    $fname = "testSched.txt";
+    $fname = "Schedule.txt";
     $file = fopen($fname, "r");
+    $i = 1;
     if($file) {
-        $totalSlots = fgets($file);
-        $totalSlots = str_replace('\r', '', str_replace('\n', '', $totalSlots));
-        for($i = 1; $i <= $totalSlots; ++$i) {
-            $line = fgets($file);
+        $line = fgets($file);
+        while(!feof($file)) {
             $line = explode(',', $line);
             $day = $line[DAY];
             $classN = $line[CLASSN];
             $tutor = $line[TUTOR];
             $startT = $line[STARTT];
             $endT = $line[ENDT];
-            $newChunk = STARTC . "<select name=\"day$number\">" .
-                $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$number\"><br>" . 
-                "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$number\"><br>" .
-                "Start Time:<br><input type=\"text\" value=\"$startT\" name=\"start$number\"><br>" . 
-                "End Time:<br><input type=\"text\" value=\"$endT\" name=\"end$number\"><br>" . ENDC;
+            $newChunk = STARTC . "<select name=\"day$i\">" .
+                $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$i\"><br>" . 
+                "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$i\"><br>" .
+                "Start Time:<br><input type=\"text\" value=\"$startT\" name=\"start$i\"><br>" . 
+                "End Time:<br><input type=\"text\" value=\"$endT\" name=\"end$i\"><br>" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
+            $line = fgets($file);
+            ++$i;
         }
     }
 ?>
@@ -69,7 +70,7 @@
 
     <main>
         <div class="container-fluid" id="schedule-container">
-            <form>
+            <form action="saveSched.php" method="POST">
             <div class="row">
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
