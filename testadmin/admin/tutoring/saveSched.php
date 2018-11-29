@@ -144,3 +144,4 @@
 	
 	fclose($Fhandle);
 ?>
+<a href="../../../testFrontEnd/schedule.php"> Go to schedule page.</a>
