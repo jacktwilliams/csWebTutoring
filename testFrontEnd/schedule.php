@@ -22,12 +22,12 @@
         $classes = array();
         //read file here
         $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-        $fileName = "testSched.txt";
+        $fileName = "../testadmin/admin/tutoring/Schedule.txt";
         $file = fopen($fileName, "r");
         if($file){
             $NoOfClasses = 0;
+            $line = fgets($file);
             while(!feof($file)) {
-                $line = fgets($file);
                 $line = explode(',', $line);
                 $day = $line[DAY];
                 $classN = $line[CLASSN];
@@ -61,6 +61,7 @@
                             "</div>";
                 //stores all boxes under a Day array
                 $slotChunks[$line[DAY]] .= $newChunk; 
+                $line = fgets($file);
             }//end of loop
             fclose($file);
             //sorts array
