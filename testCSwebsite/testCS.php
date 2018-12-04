@@ -83,7 +83,7 @@
             </form>
 
             <div id="schedule-container" class="container-fluid">
-                <div class="row">
+                <div class="row myRow">
                      <div class="day-col col" id="Sun">
                         <div class="day-name">Sunday</div>
                         <div class="slots">

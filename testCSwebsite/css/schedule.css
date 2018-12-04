@@ -2,6 +2,9 @@
     margin: auto auto 30px auto;
     width: 80%;
 }
+.myRow {
+    max-width: none;
+}
 .day-col {
     border: black 1px solid;
     min-height: 200px; /*Don't collapse on mobile when column takes full screen.*/
