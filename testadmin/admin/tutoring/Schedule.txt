@@ -1,0 +1,4 @@
+Monday,CS344,w,11,12
+Monday,CS344,Jim,11,12
+Tuesday,CS344,Will,2,3
+Wednesday,CS500,Brett,5,7

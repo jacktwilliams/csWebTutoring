@@ -1,0 +1,55 @@
+#schedule-container {
+    margin: auto auto 30px auto;
+    width: 80%;
+}
+.day-col {
+    border: black 1px solid;
+    min-height: 200px; /*Don't collapse on mobile when column takes full screen.*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.day-name {
+    align-self: center;
+    border-bottom: 2px solid black;
+}
+main {
+    width: 95vw;
+    margin: 0 auto;
+}
+.slot-chunk {
+    padding: 2px;
+}
+.add-button {
+    margin-top: 10px;
+    align-self: center;
+}
+.remove-slot {
+    float: right;
+    border-radius: 50%;
+    margin: 2px;
+}
+/* Stuff Will Added */
+.timeBox {
+    border: black 1px solid;
+    width: 100px;
+    margin: 6px;
+    border-radius: 10px;
+    padding: 5px;
+    display: none;
+}
+#dropdown1 {
+    padding: 7px;
+    margin: 10px;
+    width: 80%;
+}
+#all {
+    margin: auto;
+}
+h1 {
+    margin: 30px;
+    text-align: center;
+}
+#form1 {
+    text-align: center;
+}
