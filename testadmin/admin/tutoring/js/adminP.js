@@ -42,8 +42,14 @@ function addSlot(event) {
     var newSlot = $("<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">" + "<select name=\"day" + numSlots + "\">" +
     options[day] + "</select><br>" + "Class:<br><input type=\"text\" name=\"class" + numSlots + "\"><br>" +
     "Tutor:<br><input type=\"text\" name=\"tutor" + numSlots + "\"><br>" +
-    "Start Time:<br><input type=\"text\" name=\"start" + numSlots + "\"><br>" +
-    "End Time:<br><input type=\"text\" name=\"end" + numSlots + "\"><br>" + "</div>");
+    "Start Time:<br><input class=\"time-text\" type=\"text\" name=\"start" + numSlots + "\">" + 
+    "<select name=\"startP" + numSlots +"\">" + "<option value=\"invalid\" disabled selected>...</option>" + 
+    "<option value=\"AM\">AM</option><option value=\"PM\">PM</option></select><br>" +
+    "End Time:<br><input class=\"time-text\" type=\"text\" name=\"end" + numSlots + "\">" + 
+    "<select name=\"endP" + numSlots +"\">" + "<option value=\"invalid\" disabled selected>...</option>" +
+    "<option value=\"AM\">AM</option><option value=\"PM\">PM</option></select><br>" +
+    "Email:<br><input type=\"text\" name=\"email" + numSlots + "\"><br>" +
+    "Location/Notes:<br><input type=\"text\" name=\"notes" + numSlots + "\">" + "</div>");
 
     newSlot.find(".remove-slot").click(removeSlot);
     newSlot.find("option").click(changeDay);
