@@ -80,10 +80,10 @@
             $newChunk = STARTC . "<select name=\"day$i\">" .
                 $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$i\"><br>" . 
                 "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$i\"><br>" .
-                "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"start$i\">" . 
-                "<select name=\"startperiod$i\"> $startPOptions" .
-                "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"end$i\">" . 
-                "<select name=\"endperiod$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
+                "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"startT$i\">" . 
+                "<select name=\"startP$i\"> $startPOptions" .
+                "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"endT$i\">" . 
+                "<select name=\"endP$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
                 "Location/Notes:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
