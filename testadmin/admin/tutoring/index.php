@@ -19,7 +19,11 @@
     define("CLASSN", 1);
     define("TUTOR", 2);
     define("STARTT", 3);
-    define("ENDT", 4);
+    define("STARTP", 4);
+    define("ENDT", 5);
+    define("ENDP", 6);
+    define("EMAIL", 7);
+    define("NOTES", 8);
     /*Define a different set of <Select> <option>'s for each day. We need to have the default option be the day we are adding to.*/
     $options = ["Sunday" => "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
@@ -43,7 +47,7 @@
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-    $fname = "Schedule.txt";
+    $fname = "testSched.txt";
     $file = fopen($fname, "r");
     $i = 1;
     if($file) {
@@ -55,11 +59,29 @@
             $tutor = $line[TUTOR];
             $startT = $line[STARTT];
             $endT = $line[ENDT];
+            /*Choose default time period option*/
+            $startPOptions;
+            if(strcmp($line[STARTP], "AM") == 0) {
+                $startPOptions = "<option value=\"AM\" selected=\"selected\">AM</option><option value=\"PM\">PM</option></select><br>";
+            } 
+            else {
+                $startPOptions = "<option value=\"AM\">AM</option><option value=\"PM\" selected=\"selected\">PM</option></select><br>";
+            }
+            $endPOptions;
+            if(strcmp($line[ENDP], "AM") == 0) {
+                $endPOptions = "<option value=\"AM\" selected=\"selected\">AM</option><option value=\"PM\">PM</option></select><br>";
+            } 
+            else {
+                $endPOptions = "<option value=\"AM\">AM</option><option value=\"PM\" selected=\"selected\">PM</option></select><br>";
+            }
+
             $newChunk = STARTC . "<select name=\"day$i\">" .
                 $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$i\"><br>" . 
                 "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$i\"><br>" .
-                "Start Time:<br><input type=\"text\" value=\"$startT\" name=\"start$i\"><br>" . 
-                "End Time:<br><input type=\"text\" value=\"$endT\" name=\"end$i\"><br>" . ENDC;
+                "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"start$i\">" . 
+                "<select name=\"startperiod$i\"> $startPOptions" .
+                "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"end$i\">" . 
+                "<select name=\"endperiod$i\"> $endPOptions" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
             ++$i;
