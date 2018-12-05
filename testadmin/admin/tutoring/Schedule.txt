@@ -1,4 +1,5 @@
-Monday,CS344,w,11,12
-Monday,CS344,Jim,11,12
-Tuesday,CS344,Will,2,3
-Wednesday,CS500,Brett,5,7
+Monday,CS344,Will Eberhard,11:00am,12:00pm
+Monday,CS344,Jim Jimmyton,11:30am,12:50pm
+Tuesday,CS344,Talia Horn,2:00pm,3:00pm
+Wednesday,CS500,Brett Smearnoooooof,5:00pm,7:00pm
+Tuesday,CS341,TTTim Poooooooper,4:00pm,6:00pm
