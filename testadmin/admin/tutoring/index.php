@@ -59,6 +59,8 @@
             $tutor = $line[TUTOR];
             $startT = $line[STARTT];
             $endT = $line[ENDT];
+            $email = $line[EMAIL];
+            $notes = $line[NOTES];
             /*Choose default time period option*/
             $startPOptions;
             if(strcmp($line[STARTP], "AM") == 0) {
@@ -81,7 +83,8 @@
                 "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"start$i\">" . 
                 "<select name=\"startperiod$i\"> $startPOptions" .
                 "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"end$i\">" . 
-                "<select name=\"endperiod$i\"> $endPOptions" . ENDC;
+                "<select name=\"endperiod$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
+                "Location/Notes:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
             ++$i;
