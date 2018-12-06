@@ -101,53 +101,54 @@
                     <div class="day-name">Sunday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Sunday"]); ?>
-                        <button type="button" class="add-button Sun">Add Times</button>
+                        <input type="button" class="add-button Sun" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Mon">
                     <div class="day-name">Monday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Monday"]); ?>
-                        <button type="button" class="add-button Mon">Add Times</button>
+                        <input type="button" class="add-button Mon" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Tue">
                     <div class="day-name">Tuesday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Tuesday"]); ?>
-                        <button type="button" class="add-button Tue">Add Times</button>
+                        <input type="button" class="add-button Tue" value="Add Times">
                     </div>
                 </div>          
                 <div class="day-col col" id="Wed">
                     <div class="day-name">Wednesday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Wednesday"]); ?>
-                        <button type="button" class="add-button Wed">Add Times</button>
+                        <input type="button" class="add-button Wed" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Thu">
                     <div class="day-name">Thursday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Thursday"]); ?>
-                        <button type="button" class="add-button Thu">Add Times</button>
+                        <input type="button" class="add-button Thu" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Fri">
                     <div class="day-name">Friday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Friday"]); ?>
-                        <button type="button" class="add-button Fri">Add Times</button>
+                        <input type="button" class="add-button Fri" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Sat">
                     <div class="day-name">Saturday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Saturday"]); ?>
-                        <button type="button" class="add-button Sat">Add Times</button>
+                        <input type="button" class="add-button Sat" value="Add Times">
                     </div>
                 </div>
             </div>
             <input type="submit" value="Save">
+            <input type="button" class="revert-button" value="Revert Changes">
             </form>
         </div>
     </main>

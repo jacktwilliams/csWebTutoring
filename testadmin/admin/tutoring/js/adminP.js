@@ -27,10 +27,11 @@ function regHandlers(event) {
     $(".add-button").click(addSlot);
     $(".remove-slot").click(removeSlot);
     $("option").click(changeDay);
+    $(".revert-button").click(revertPage);
 }
 
-function regHandlersForElem(elem) {
-
+function revertPage(event) {
+    window.location.reload(false);
 }
 
 function addSlot(event) {
