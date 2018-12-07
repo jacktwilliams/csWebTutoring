@@ -20,8 +20,9 @@
         define("STARTP",4);
         define("ENDT", 5);
         define("ENDP",6);
-        define("EMAIL",7);
-        define("NOTES",8);
+        define("EMAIL", 7);
+        define("LOCATION", 8);
+        define("NOTES", 9);
         
         $classes = array();
         //read file here
@@ -60,10 +61,11 @@
                 $endT = $line[ENDT];
                 $endP = $line[ENDP];
                 $email = $line[EMAIL];
+                $location = $line[LOCATION];
                 $notes = $line[NOTES];
-                //makes the Notes: not appear if the string is empty
-                if(trim($notes) != ""){
-                    $notes = "Note: " . $notes;
+                //makes the location not appear if the string is empty
+                if(trim($location) != ""){
+                    $location = "Location: " . $location;
                 }
                 if(trim($email) != ""){
                     $email = "<a href='mailto:$email'>Email</a>";
@@ -79,6 +81,7 @@
                                     "<div>$classN</div>" .
                                     "<div>$startT$startP - $endT$endP</div>" .
                                     $email .
+                                    "<div id=\"location\">$location</div>" .
                                     "<div>$notes</div>" .
                                 "</div>" .
                             "</div>";

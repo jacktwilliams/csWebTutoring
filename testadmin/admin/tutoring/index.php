@@ -23,7 +23,8 @@
     define("ENDT", 5);
     define("ENDP", 6);
     define("EMAIL", 7);
-    define("NOTES", 8);
+    define("LOCATION", 8);
+    define("NOTES", 9);
     /*Define a different set of <Select> <option>'s for each day. We need to have the default option be the day we are adding to.*/
     $options = ["Sunday" => "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
@@ -60,7 +61,9 @@
             $startT = $line[STARTT];
             $endT = $line[ENDT];
             $email = $line[EMAIL];
+            $location = $line[LOCATION];
             $notes = $line[NOTES];
+
             /*Choose default time period option*/
             $startPOptions;
             if(strcmp($line[STARTP], "AM") == 0) {
@@ -84,7 +87,7 @@
                 "<select name=\"startP$i\"> $startPOptions" .
                 "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"endT$i\">" . 
                 "<select name=\"endP$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
-                "Location/Notes:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
+                "Location:<br><input value=\"$location\" name=\"location$i\"><br>" . "Location:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
             ++$i;

@@ -69,6 +69,10 @@ hr {
 .box-text {
     padding: 2% 1% 2% 2%;
 }
+#location {
+    border-bottom: 1px solid black;
+    margin-bottom: 2%;
+}
 
 /* media queries to keep the text in the time-slot box */
 @media screen and (max-width: 1500px){
