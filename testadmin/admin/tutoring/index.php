@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Replace bootstrap CDN link with server file at some point-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/williamsT.css">
+    <link rel="stylesheet" href="css/tutoringAdmin.css">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/adminP.js" defer></script>
+    <script type="text/javascript" src="js/tutoringAdmin.js" defer></script>
 <?php
     /*include $path . "admin_head2.html";*/
     define("STARTC", "<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">");
@@ -47,7 +47,7 @@
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-    $fname = "Schedule.txt";
+    $fname = "csTutorSchedule.txt";
     $file = fopen($fname, "r");
     $i = 1;
     if($file) {

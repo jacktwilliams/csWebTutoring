@@ -1,5 +1,5 @@
 <?php
-	$File = "Schedule.txt";
+	$File = "csTutorSchedule.txt";
 	$Fhandle = fopen($File, "w");
 	$NumberEvents = count($_POST);
 
@@ -177,4 +177,4 @@
 	fclose($Fhandle);
 ?>
 
-<a href="../../../testCSwebsite/current_students/tutoring/schedule.php">Click here to go to the tutoring page. (file name neeeds to be added)</a>
+<br><a href="../../../testCSwebsite/current_students/tutoring/index.php">Go to the CS tutor schedule page!</a>

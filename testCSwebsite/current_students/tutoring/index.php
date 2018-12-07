@@ -1,284 +1,174 @@
 <?php
-    $path = "../../";
-    include $path."head1.html";    
+     $path = "../../";
+     include $path . 'head1.html';
 ?>
-	<link rel="stylesheet" type="text/css" href="css/tableStyles.css">
-
+    <!--My CSS-->
+    <link rel="stylesheet" href="css/tutorSched.css">
 <?php
-    include $path."head2.php"; 
-?>     
+     include $path . 'head2.php';
+?>
+
+	<!-- HERO SECTION -->
+
+	  <body id="body1">
+        <?php 
+        //used for the order of the data in a line
+        define("DAY", 0);
+        define("CLASSN", 1);
+        define("TUTOR", 2);
+        define("STARTT", 3);
+        define("STARTP",4);
+        define("ENDT", 5);
+        define("ENDP",6);
+        define("EMAIL",7);
+        define("NOTES",8);
         
-    <!-- BANNER SECTION -->
-    <div class="banner row">
-        <div class="image large-12 columns">
-            <img src="<?=$path?>img/tutoring.png">
-            <h2>Tutoring Schedules</h2>
-        </div>
-    </div>
-    <div class="row"><img src="<?=$path?>/img/line.svg"></div>       
+        $classes = array();
+        //read file here
+        $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
+        $fileName = "../../../testadmin/admin/tutoring/csTutorSchedule.txt";
+        $file = fopen($fileName, "r");
+        if($file){
+            $NoOfClasses = 0;
+            $line = fgets($file);
+            while(!feof($file)) {
+                $line = explode(',', $line);
+                $day = $line[DAY];
+                $classN = $line[CLASSN];
+                //check if new class
+                $newClass = true;
+                if($NoOfClasses == 0){
+                    $classes[$NoOfClasses] = $classN;
+                    $NoOfClasses++;
+                }
+                else{
+                    foreach($classes as $value){
+                        if($value == $classN){
+                            $newClass = false;
+                        }
+                    }
+                    //check if true
+                    if($newClass){
+                        $classes[$NoOfClasses] = $classN;
+                        $NoOfClasses++;
+                    }
+                }//end of else
+                
+                $tutor = $line[TUTOR];
+                $startT = $line[STARTT];
+                $startP = $line[STARTP];
+                $endT = $line[ENDT];
+                $endP = $line[ENDP];
+                $email = $line[EMAIL];
+                $notes = $line[NOTES];
+                //makes the Notes: not appear if the string is empty
+                if(trim($notes) != ""){
+                    $notes = "Note: " . $notes;
+                }
+                if(trim($email) != ""){
+                    $email = "<a href='mailto:$email'>Email</a>";
+                }
+                else{
+                    $email = "<div></div>";
+                }
+                
+                //makes a new chunk (box)
+                $newChunk = "<div class='timeBox $classN'>" .
+                                "<div class='box-text'>" .
+                                    "<div>$tutor</div>" . 
+                                    "<div>$classN</div>" .
+                                    "<div>$startT$startP - $endT$endP</div>" .
+                                    $email .
+                                    "<div>$notes</div>" .
+                                "</div>" .
+                            "</div>";
+                //stores all boxes under a Day array
+                $slotChunks[$line[DAY]] .= $newChunk; 
+                $line = fgets($file);
+            }//end of loop
+            fclose($file);
+            //sorts array
+            sort($classes);
+        }//enf of if
+        ?>
+        <div id="all">
+            
+             <!-- BANNER SECTION -->
+            <div class="banner row">
+                <div class="image large-12 columns">
+                    <img src="<?=$path?>img/tutoring.png">
+                    <h2>Tutoring Schedules</h2>
+                </div>
+            </div>
+            <!--BANNER END -->
+            <hr>
+            <p id="drop-desc">Use the dropdown menu to view the tutors available for that class.</p>
+            
+            <form id="form1">
+                <select name="users" id="dropdown1" onchange="updateTable(this.value)">
+                    <option value="">Select a Class:</option>
+                    <option value="All">View All</option>
+                    //this will display only classes that have tutors
+                    <?php
+                    foreach($classes as $value){
+                        echo "<option value=$value>$value</option>";
+                    }
+                    ?>
+                </select>
+            </form>
          
-    <div class="row"> 
-        <div class="large-12 columns">                
-            <p> 
-				To view availability of a tutor for a specific class, select that class from the dropdown menu below. 
-				The room number that gets displayed is where tutoring for that class takes place.
-			</p>
+            <div id="schedule-container" class="container-fluid">
+                <div class="row myRow">
+                     <div class="day-col col" id="Sun">
+                        <div class="day-name">Sunday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Sunday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Mon">
+                        <div class="day-name">Monday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Monday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Tue">
+                        <div class="day-name">Tuesday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Tuesday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Wed">
+                        <div class="day-name">Wednesday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Wednesday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Thu">
+                        <div class="day-name">Thursday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Thursday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Fri">
+                        <div class="day-name">Friday</div>
+                        <div class="slots">
+                            <?php echo($slotChunks["Friday"]); ?>
+                        </div>
+                    </div>
+                      <div class="day-col col" id="Sat">
+                        <div class="day-name">Saturday</div>
+                        <div class="slots">
+                           <?php echo($slotChunks["Saturday"]); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-                         
-		<div class="large-12 columns">
-        <form>
-            <select name="users" onchange="updateTable(this.value)">
-            <option value="">Select a Class:</option>
-            <option value="234">CS 234/250</option>
-            <option value="275">CS 275</option>
-            <option value="313">CS 313</option>
-            <option value="341">CS 341</option>
-            <option value="375">CS 375</option>
-            
-              
-            </select>
-        </form>
         
-        
-        <table id="maintable">
-                
-            <tr>
-                <th></th>
-                <th>Mon</th>
-                <th>Tues</th>
-                <th>Wed</th>
-                <th>Thurs</th>
-                <th>Fri</th>
-            </tr>
-            
-            <tr>
-                <th>8:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>8:30</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>9:00</th>
-    
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>9:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>10:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>10:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>11:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>11:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>12:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>12:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>1:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <th>1:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>2:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>2:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>3:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>3:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>4:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>4:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>5:00</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            
-            <tr>
-                <th>5:30</th>
-                
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-     
-        </table>
-
-
-        </div>         
-    </div>
-       
+        <script type="text/javascript" src="js/schedule.js"></script>
+    <!-- close wrapper, no more content after this -->
 <?php
-    include $path."footer.php";
-?>        
-<script src="js/tableFunctions.js"></script>
-
+    include $path . 'footer.php';
+?>  
 </body>
-</html> 
+</html>
