@@ -41,3 +41,10 @@ main {
 input {
     margin-bottom: 1%;
 }
+.invalid {
+    border-width: 5px;
+    border-color: red;
+}
+#hidden-submit {
+    display: none;
+}

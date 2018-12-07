@@ -77,7 +77,7 @@
                 $endPOptions = "<option value=\"AM\">AM</option><option value=\"PM\" selected=\"selected\">PM</option></select><br>";
             }
 
-            $newChunk = STARTC . "<select name=\"day$i\">" .
+            $newChunk = STARTC . "<select class=\"day-select\" name=\"day$i\">" .
                 $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$i\"><br>" . 
                 "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$i\"><br>" .
                 "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"startT$i\">" . 
@@ -95,7 +95,7 @@
 
     <main>
         <div class="container-fluid" id="schedule-container">
-            <form action="saveSched.php" method="POST">
+            <form id="time-form" action="saveSched.php" method="POST">
             <div class="row">
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
@@ -147,7 +147,8 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Save">
+            <input type="submit" id="hidden-submit" value="sub"><!-- This is hidden and will be 'clicked' when form is validated -->
+            <input type="button" id="save-button" value="Save">
             <input type="button" class="revert-button" value="Revert Changes">
             </form>
         </div>

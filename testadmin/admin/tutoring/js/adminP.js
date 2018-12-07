@@ -26,8 +26,12 @@ var options = {"Sun" : "<option value=\"Sunday\" selected=\"selected\">Sunday</o
 function regHandlers(event) {
     $(".add-button").click(addSlot);
     $(".remove-slot").click(removeSlot);
-    $("option").click(changeDay);
+    $(".day-select").find("option").click(changeDay);
     $(".revert-button").click(revertPage);
+    $("#save-button").click(saveButton);
+    $("hidden-submit").click(() => {
+        console.log("Clicked this b!");
+    });
 }
 
 function revertPage(event) {
@@ -40,7 +44,7 @@ function addSlot(event) {
     var day = addButton.attr('class').substr(11); //read class which comes after 'add-button'.
     addButton.remove(); //we will remove the button, add the empty time-slot and put the button at the bottom
     var slotContainer = $("#" + day + " .slots");
-    var newSlot = $("<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">" + "<select name=\"day" + numSlots + "\">" +
+    var newSlot = $("<div class=\"chunk-cont\"><button type=\"button\" class=\"remove-slot\">-</button><div class=\"slot-chunk\">" + "<select class=\"day-select\" name=\"day" + numSlots + "\">" +
     options[day] + "</select><br>" + "Class:<br><input type=\"text\" name=\"class" + numSlots + "\"><br>" +
     "Tutor:<br><input type=\"text\" name=\"tutor" + numSlots + "\"><br>" +
     "Start Time:<br><input class=\"time-text\" type=\"text\" name=\"startT" + numSlots + "\">" + 
@@ -53,7 +57,7 @@ function addSlot(event) {
     "Location/Notes:<br><input type=\"text\" name=\"notes" + numSlots + "\">" + "</div>");
 
     newSlot.find(".remove-slot").click(removeSlot);
-    newSlot.find("option").click(changeDay);
+    newSlot.find(".day-select").find("option").click(changeDay);
 
     slotContainer.append(newSlot);
     slotContainer.append(addButton.click(addSlot));
@@ -69,6 +73,49 @@ function changeDay(event) {
     var dayCode = $(event.target).text().substr(0, 3);
     console.log(dayCode);
     $("#" + dayCode + " .slots").prepend(chunk);
+}
+
+function validateTextInput() {
+    var valid = true;
+    var inputs = document.getElementsByTagName("input");
+    for(var i = 0; i < inputs.length; ++i){
+        var current = inputs[i];
+        if(current.type == 'text' && current.value == '') {
+            current.className += " invalid";
+            valid = false;
+        }
+        else {
+            if(current.className.includes(" invalid")) {
+                current.className = current.className.replace(" invalid", "");
+            }
+        }
+    }
+    return valid;
+}
+function validateSelectInput() {
+    var valid = true;
+    var inputs = document.getElementsByTagName("select");
+    for(var i = 0; i < inputs.length; ++i){
+        var current = inputs[i];
+        if(current.options[current.selectedIndex].value == "invalid") {
+            current.className += " invalid";
+            valid = false;
+        }
+        else {
+            if(current.className.includes(" invalid")) {
+                current.className = current.className.replace(" invalid", "");
+            }
+        }
+    }
+    return valid;
+}
+
+function saveButton() {
+    console.log("Save button!");
+    if(validateTextInput() && validateSelectInput()) {
+        console.log("try to submit!!");
+        $("#hidden-submit").click();
+    }
 }
 
 regHandlers();
