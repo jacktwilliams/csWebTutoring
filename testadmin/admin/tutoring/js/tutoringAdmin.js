@@ -81,11 +81,17 @@ function validateTextInput() {
     var inputs = document.getElementsByTagName("input");
     for(var i = 0; i < inputs.length; ++i){
         var current = inputs[i];
-        if(current.type == 'text' && current.value == '') {
+        //all class names will be uppercase
+        if(current.name.includes("class")) {
+            current.value = current.value.toUpperCase();
+        }
+        //if input is a text input, empty, but it's not the location or notes field. (those can be empty).
+        if(current.type == 'text' && current.value == '' && !(current.name.includes("location") || current.name.includes("notes"))) {
             current.className += " invalid";
             valid = false;
         }
         else {
+            //remove invalid class from valid entries.
             if(current.className.includes(" invalid")) {
                 current.className = current.className.replace(" invalid", "");
             }
