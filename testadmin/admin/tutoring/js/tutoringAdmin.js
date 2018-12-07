@@ -1,6 +1,7 @@
 //Author: Jack Williams
 "use strict";
-var slotNum = $("select").size();
+
+//Set default option depending on which day-slot we are adding to.
 var options = {"Sun" : "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" +
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" + 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
@@ -27,11 +28,13 @@ function regHandlers(event) {
     $(".add-button").click(addSlot);
     $(".remove-slot").click(removeSlot);
     $(".day-select").find("option").click(changeDay);
-    $(".revert-button").click(revertPage);
+    $("#revert-button").click(revertPage);
     $("#save-button").click(saveButton);
-    $("hidden-submit").click(() => {
-        console.log("Clicked this b!");
-    });
+    $("#remove-all").click(removeAll);
+}
+
+function removeAll() {
+    $(".chunk-cont").remove();
 }
 
 function revertPage(event) {
@@ -70,9 +73,7 @@ function removeSlot(event) {
 
 function changeDay(event) {
     var chunk = $(event.target).parent().parent().parent().detach(); //remove chunk-cont
-    console.log(chunk);
     var dayCode = $(event.target).text().substr(0, 3);
-    console.log(dayCode);
     $("#" + dayCode + " .slots").prepend(chunk);
 }
 
@@ -118,9 +119,7 @@ function validateSelectInput() {
 }
 
 function saveButton() {
-    console.log("Save button!");
     if(validateTextInput() && validateSelectInput()) {
-        console.log("try to submit!!");
         $("#hidden-submit").click();
     }
 }

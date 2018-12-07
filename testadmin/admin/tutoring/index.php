@@ -160,9 +160,12 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" id="hidden-submit" value="sub"><!-- This is hidden and will be 'clicked' when form is validated -->
-            <input type="button" id="save-button" value="Save">
-            <input type="button" class="revert-button" value="Revert Changes">
+            <div id="bottom-button-container">
+                <input type="submit" id="hidden-submit" value="sub"><!-- This is hidden and will be 'clicked' when form is validated -->
+                <input type="button" id="save-button" value="Save">
+                <input type="button" id="revert-button" value="Revert Changes">
+                <input type="button" id="remove-all" value="Remove All">
+            </div>
             </form>
         </div>
     </main>

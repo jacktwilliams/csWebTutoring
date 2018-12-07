@@ -48,3 +48,6 @@ input {
 #hidden-submit {
     display: none;
 }
+#bottom-button-container {
+    margin-top: 4%;
+}
