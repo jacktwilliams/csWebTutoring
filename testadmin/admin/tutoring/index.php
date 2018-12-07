@@ -95,7 +95,7 @@
 
     <main>
         <div class="container-fluid" id="schedule-container">
-            <form id="time-form" action="saveSched.php" method="POST">
+            <form id="time-form" action="newSched.php" method="POST">
             <div class="row">
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
