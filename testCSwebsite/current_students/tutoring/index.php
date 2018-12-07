@@ -81,6 +81,12 @@
                 else{
                     $email = "<div></div>";
                 }
+
+                //only put horizontal line between notes and location if notes exists
+                $locationID = "";
+                if(trim($notes) != "") {
+                    $locationID = "id=\"location\"";
+                }
                 
                 //makes a new chunk (box)
                 $newChunk = "<div class='timeBox $classN'>" .
@@ -89,7 +95,7 @@
                                     "<div>$classN</div>" .
                                     "<div>$startT$startP - $endT$endP</div>" .
                                     $email .
-                                    "<div id=\"location\">$location</div>" .
+                                    "<div $locationID>$location</div>" .
                                     "<div>$notes</div>" .
                                 "</div>" .
                             "</div>";
