@@ -30,12 +30,20 @@
         $fileName = "../../../testadmin/admin/tutoring/csTutorSchedule.txt";
         $file = fopen($fileName, "r");
         if($file){
+            //tracks if there is a sat or sun
+            $satOrSun = false;
             $NoOfClasses = 0;
             $line = fgets($file);
             while(!feof($file)) {
                 $line = explode(',', $line);
                 $day = $line[DAY];
-                $classN = $line[CLASSN];
+                if($day == "Sunday" || $day == "Saturday"){
+                    $satOrSun = true;
+                }
+                
+                //converts classN to uppercase so it doesn't appear twice in dropdown
+                $classN = strtoupper($line[CLASSN]);
+                
                 //check if new class
                 $newClass = true;
                 if($NoOfClasses == 0){
@@ -122,12 +130,19 @@
          
             <div id="schedule-container" class="container-fluid">
                 <div class="row myRow">
-                     <div class="day-col col" id="Sun">
-                        <div class="day-name">Sunday</div>
-                        <div class="slots">
-                           <?php echo($slotChunks["Sunday"]); ?>
-                        </div>
-                    </div>
+                    <?php
+                    //Sunday only appears if there is a slot in Sun or Sat
+                    $SunSlots = $slotChunks["Sunday"];
+                    if($satOrSun){
+                        echo 
+                        "<div class='day-col col' id='Sun'>
+                            <div class='day-name'>Sunday</div>
+                            <div class='slots'>
+                               $SunSlots;
+                            </div>
+                        </div>";
+                    }
+                    ?>
                       <div class="day-col col" id="Mon">
                         <div class="day-name">Monday</div>
                         <div class="slots">
@@ -158,12 +173,19 @@
                             <?php echo($slotChunks["Friday"]); ?>
                         </div>
                     </div>
-                      <div class="day-col col" id="Sat">
-                        <div class="day-name">Saturday</div>
-                        <div class="slots">
-                           <?php echo($slotChunks["Saturday"]); ?>
-                        </div>
-                    </div>
+                    <?php
+                    $SatSlots = $slotChunks["Saturday"];
+                    if($satOrSun){
+                        echo
+                          "<div class='day-col col' id='Sat'>
+                            <div class='day-name'>Saturday</div>
+                            <div class='slots'>
+                               $SatSlots
+                            </div>
+                        </div>";
+                    }
+                    ?>
+                    
                 </div>
             </div>
         </div>
