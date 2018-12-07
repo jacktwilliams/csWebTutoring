@@ -49,7 +49,7 @@
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
     $fname = "csTutorSchedule.txt";
-    $file = fopen($fname, "r");
+    @$file = fopen($fname, "r"); //suppress file not found warning.
     $i = 1;
     if($file) {
         $line = fgets($file);
@@ -100,10 +100,13 @@
         <div id="info">
             <p>Hello, admin. Here you can edit the Computer Science tutor schedule! Here are some notes to help.</p>
             <ul>
-                <li>All fields are required except the location and notes fields.</li>
+                <li>All fields are required except the location, notes, and email fields.</li>
                 <li>If you don't add time slots for Saturday or Sunday, those two days will not appear on the schedule.</li>
                 <li>As you add time slots on a day, slots earlier in the day may appear after those later in the day. The slots will be sorted
                     by starting time before appearing on the schedule page.
+                </li>
+                <li>Starting and ending times are not currently validated on this page. Saving your schedule with sessions 24 hours or longer
+                    (ex. 4pm - 2pm) may cause warnings upon saving or other unpredicted behavior. In general, the schedule will still appear as entered.
                 </li>
             </ul>
         </div>

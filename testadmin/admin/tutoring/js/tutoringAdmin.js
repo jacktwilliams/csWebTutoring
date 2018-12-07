@@ -86,8 +86,12 @@ function validateTextInput() {
         if(current.name.includes("class")) {
             current.value = current.value.toUpperCase();
         }
-        //if input is a text input, empty, but it's not the location or notes field. (those can be empty).
-        if(current.type == 'text' && current.value == '' && !(current.name.includes("location") || current.name.includes("notes"))) {
+        //format all times.
+        if((current.name.includes("startT") || current.name.includes("endT")) && !current.value.includes(":")) {
+            current.value += ":00";
+        }
+        //if input is a text input, empty, but it's not the location, notes, or email field. (those can be empty). This could be refactored..
+        if(current.type == 'text' && current.value == '' && !(current.name.includes("location") || current.name.includes("notes") || current.name.includes("email"))) {
             current.className += " invalid";
             valid = false;
         }
