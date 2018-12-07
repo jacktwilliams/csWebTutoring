@@ -27,7 +27,7 @@ var options = {"Sun" : "<option value=\"Sunday\" selected=\"selected\">Sunday</o
 function regHandlers(event) {
     $(".add-button").click(addSlot);
     $(".remove-slot").click(removeSlot);
-    $(".day-select").find("option").click(changeDay);
+    $(".day-select").change(changeDay);
     $("#revert-button").click(revertPage);
     $("#save-button").click(saveButton);
     $("#remove-all").click(removeAll);
@@ -61,7 +61,7 @@ function addSlot(event) {
     "Notes:<br><input type=\"text\" name=\"notes" + numSlots + "\">" + "</div>");
 
     newSlot.find(".remove-slot").click(removeSlot);
-    newSlot.find(".day-select").find("option").click(changeDay);
+    newSlot.find(".day-select").change(changeDay);
 
     slotContainer.append(newSlot);
     slotContainer.append(addButton.click(addSlot));
@@ -72,8 +72,11 @@ function removeSlot(event) {
 }
 
 function changeDay(event) {
-    var chunk = $(event.target).parent().parent().parent().detach(); //remove chunk-cont
-    var dayCode = $(event.target).text().substr(0, 3);
+    var chunk = $(event.target).parent().parent().detach(); //remove chunk-cont
+    console.log(chunk);
+    console.log(event.target.options[event.target.selectedIndex].value);
+    //day code is first three letters of the selected option's value
+    var dayCode = event.target.options[event.target.selectedIndex].value.substr(0, 3);
     $("#" + dayCode + " .slots").prepend(chunk);
 }
 
