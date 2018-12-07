@@ -54,7 +54,8 @@ function addSlot(event) {
     "<select name=\"endP" + numSlots +"\">" + "<option value=\"invalid\" disabled selected>...</option>" +
     "<option value=\"AM\">AM</option><option value=\"PM\">PM</option></select><br>" +
     "Email:<br><input type=\"text\" name=\"email" + numSlots + "\"><br>" +
-    "Location/Notes:<br><input type=\"text\" name=\"notes" + numSlots + "\">" + "</div>");
+    "Location:<br><input type=\"text\" name=\"location" + numSlots + "\"><br>" + 
+    "Notes:<br><input type=\"text\" name=\"notes" + numSlots + "\">" + "</div>");
 
     newSlot.find(".remove-slot").click(removeSlot);
     newSlot.find(".day-select").find("option").click(changeDay);
