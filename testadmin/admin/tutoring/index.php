@@ -19,7 +19,11 @@
     define("CLASSN", 1);
     define("TUTOR", 2);
     define("STARTT", 3);
-    define("ENDT", 4);
+    define("STARTP", 4);
+    define("ENDT", 5);
+    define("ENDP", 6);
+    define("EMAIL", 7);
+    define("NOTES", 8);
     /*Define a different set of <Select> <option>'s for each day. We need to have the default option be the day we are adding to.*/
     $options = ["Sunday" => "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
@@ -55,11 +59,32 @@
             $tutor = $line[TUTOR];
             $startT = $line[STARTT];
             $endT = $line[ENDT];
-            $newChunk = STARTC . "<select name=\"day$i\">" .
+            $email = $line[EMAIL];
+            $notes = $line[NOTES];
+            /*Choose default time period option*/
+            $startPOptions;
+            if(strcmp($line[STARTP], "AM") == 0) {
+                $startPOptions = "<option value=\"AM\" selected=\"selected\">AM</option><option value=\"PM\">PM</option></select><br>";
+            } 
+            else {
+                $startPOptions = "<option value=\"AM\">AM</option><option value=\"PM\" selected=\"selected\">PM</option></select><br>";
+            }
+            $endPOptions;
+            if(strcmp($line[ENDP], "AM") == 0) {
+                $endPOptions = "<option value=\"AM\" selected=\"selected\">AM</option><option value=\"PM\">PM</option></select><br>";
+            } 
+            else {
+                $endPOptions = "<option value=\"AM\">AM</option><option value=\"PM\" selected=\"selected\">PM</option></select><br>";
+            }
+
+            $newChunk = STARTC . "<select class=\"day-select\" name=\"day$i\">" .
                 $options[$day] . "</select><br>" . "Class:<br><input type=\"text\" value=\"$classN\" name=\"class$i\"><br>" . 
                 "Tutor:<br><input type=\"text\" value=\"$tutor\" name=\"tutor$i\"><br>" .
-                "Start Time:<br><input type=\"text\" value=\"$startT\" name=\"start$i\"><br>" . 
-                "End Time:<br><input type=\"text\" value=\"$endT\" name=\"end$i\"><br>" . ENDC;
+                "Start Time:<br><input class=\"time-text\" type=\"text\" value=\"$startT\" name=\"startT$i\">" . 
+                "<select name=\"startP$i\"> $startPOptions" .
+                "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"endT$i\">" . 
+                "<select name=\"endP$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
+                "Location/Notes:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
             ++$i;
@@ -70,59 +95,61 @@
 
     <main>
         <div class="container-fluid" id="schedule-container">
-            <form action="saveSched.php" method="POST">
+            <form id="time-form" action="newSched.php" method="POST">
             <div class="row">
                 <div class="day-col col" id="Sun">
                     <div class="day-name">Sunday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Sunday"]); ?>
-                        <button type="button" class="add-button Sun">Add Times</button>
+                        <input type="button" class="add-button Sun" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Mon">
                     <div class="day-name">Monday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Monday"]); ?>
-                        <button type="button" class="add-button Mon">Add Times</button>
+                        <input type="button" class="add-button Mon" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Tue">
                     <div class="day-name">Tuesday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Tuesday"]); ?>
-                        <button type="button" class="add-button Tue">Add Times</button>
+                        <input type="button" class="add-button Tue" value="Add Times">
                     </div>
                 </div>          
                 <div class="day-col col" id="Wed">
                     <div class="day-name">Wednesday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Wednesday"]); ?>
-                        <button type="button" class="add-button Wed">Add Times</button>
+                        <input type="button" class="add-button Wed" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Thu">
                     <div class="day-name">Thursday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Thursday"]); ?>
-                        <button type="button" class="add-button Thu">Add Times</button>
+                        <input type="button" class="add-button Thu" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Fri">
                     <div class="day-name">Friday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Friday"]); ?>
-                        <button type="button" class="add-button Fri">Add Times</button>
+                        <input type="button" class="add-button Fri" value="Add Times">
                     </div>
                 </div>
                 <div class="day-col col" id="Sat">
                     <div class="day-name">Saturday</div>
                     <div class="slots">
                         <?php echo($slotChunks["Saturday"]); ?>
-                        <button type="button" class="add-button Sat">Add Times</button>
+                        <input type="button" class="add-button Sat" value="Add Times">
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Save">
+            <input type="submit" id="hidden-submit" value="sub"><!-- This is hidden and will be 'clicked' when form is validated -->
+            <input type="button" id="save-button" value="Save">
+            <input type="button" class="revert-button" value="Revert Changes">
             </form>
         </div>
     </main>

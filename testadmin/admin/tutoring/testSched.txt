@@ -1,4 +1,1 @@
-3
-Monday,CS344,Jack Williams,10,2
-Monday,CS344,Jack Williams,10,2
-Monday,CS344,Jack Williams,10,2
+Monday,CS344,Jack Williams,10,PM,2,PM,jack@mail.com,WAT102
