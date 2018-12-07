@@ -1,5 +1,0 @@
-Monday,CS344,Will Eberhard,11:00,AM,12:00,PM,,Is really nice
-Monday,CS344,Jim Jimmyton,11:30,AM,12:50,PM,jim@hotmail.com,
-Tuesday,CS344,Talia Horn,2:00,PM,3:00,PM,pizza@pizza.com,Is really hot
-Wednesday,CS500,Brett Smearnoooooof,5:00,PM,7:00,PM,brett@gmail.com,Can't swim :(
-Tuesday,CS341,TTTim Poooooooper,4:00,AM,6:00,PM,,
