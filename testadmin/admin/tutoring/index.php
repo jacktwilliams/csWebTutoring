@@ -87,7 +87,7 @@
                 "<select name=\"startP$i\"> $startPOptions" .
                 "End Time:<br><input class=\"time-text\" type=\"text\" value=\"$endT\" name=\"endT$i\">" . 
                 "<select name=\"endP$i\"> $endPOptions" . "Email:<br><input value=\"$email\" name=\"email$i\"><br>" .
-                "Location:<br><input value=\"$location\" name=\"location$i\"><br>" . "Location:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
+                "Location:<br><input value=\"$location\" name=\"location$i\"><br>" . "Notes:<br><input value=\"$notes\" name=\"notes$i\">" . ENDC;
             $slotChunks[$line[DAY]] .= $newChunk;
             $line = fgets($file);
             ++$i;

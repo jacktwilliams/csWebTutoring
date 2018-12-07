@@ -33,7 +33,8 @@
                     $days[0][6 + 10 * $days[0][0]] = $_POST["endT". $i];
                     $days[0][7 + 10 * $days[0][0]] = $_POST["endP". $i];
                     $days[0][8 + 10 * $days[0][0]] = $_POST["email". $i];
-                    $days[0][9 + 10 * $days[0][0]] = $_POST["notes". $i];
+                    $days[0][9 + 10 * $days[0][0]] = $_POST["location". $i];
+                    $days[0][10 + 10 * $days[0][0]] = $_POST["notes". $i];
                     $days[0][0]++;
 
 					break;
@@ -47,7 +48,8 @@
                     $days[1][6 + 10 * $days[1][0]] = $_POST["endT". $i];
                     $days[1][7 + 10 * $days[1][0]] = $_POST["endP". $i];
                     $days[1][8 + 10 * $days[1][0]] = $_POST["email". $i];
-                    $days[1][9 + 10 * $days[1][0]] = $_POST["notes". $i];
+                    $days[1][9 + 10 * $days[1][0]] = $_POST["location". $i];
+                    $days[1][10 + 10 * $days[1][0]] = $_POST["notes". $i];
                     $days[1][0]++;
 
 					break;
@@ -61,7 +63,9 @@
                     $days[2][6 + 10 * $days[2][0]] = $_POST["endT". $i];
                     $days[2][7 + 10 * $days[2][0]] = $_POST["endP". $i];
                     $days[2][8 + 10 * $days[2][0]] = $_POST["email". $i];
-                    $days[2][9 + 10 * $days[2][0]] = $_POST["notes". $i];
+                    $days[2][9 + 10 * $days[2][0]] = $_POST["location". $i];
+                    $days[2][10 + 10 * $days[2][0]] = $_POST["notes". $i];
+
                     $days[2][0]++;
 
                     break;
@@ -75,7 +79,8 @@
                     $days[3][6 + 10 * $days[3][0]] = $_POST["endT". $i];
                     $days[3][7 + 10 * $days[3][0]] = $_POST["endP". $i];
                     $days[3][8 + 10 * $days[3][0]] = $_POST["email". $i];
-                    $days[3][9 + 10 * $days[3][0]] = $_POST["notes". $i];
+                    $days[3][9 + 10 * $days[3][0]] = $_POST["location". $i];
+                    $days[3][10 + 10 * $days[3][0]] = $_POST["notes". $i];
                     $days[3][0]++;
 
                     break;
@@ -89,7 +94,8 @@
                     $days[4][6 + 10 * $days[4][0]] = $_POST["endT". $i];
                     $days[4][7 + 10 * $days[4][0]] = $_POST["endP". $i];
                     $days[4][8 + 10 * $days[4][0]] = $_POST["email". $i];
-                    $days[4][9 + 10 * $days[4][0]] = $_POST["notes". $i];
+                    $days[4][9 + 10 * $days[4][0]] = $_POST["location". $i];
+                    $days[4][10 + 10 * $days[4][0]] = $_POST["notes". $i];
                     $days[4][0]++;
 
 					break;
@@ -103,7 +109,8 @@
                     $days[5][6 + 10 * $days[5][0]] = $_POST["endT". $i];
                     $days[5][7 + 10 * $days[5][0]] = $_POST["endP". $i];
                     $days[5][8 + 10 * $days[5][0]] = $_POST["email". $i];
-                    $days[5][9 + 10 * $days[5][0]] = $_POST["notes". $i];
+                    $days[5][9 + 10 * $days[5][0]] = $_POST["location". $i];
+                    $days[5][10 + 10 * $days[5][0]] = $_POST["notes". $i];
                     $days[5][0]++;
 
 					break;
@@ -117,7 +124,8 @@
                     $days[6][6 + 10 * $days[6][0]] = $_POST["endT". $i];
                     $days[6][7 + 10 * $days[6][0]] = $_POST["endP". $i];
                     $days[6][8 + 10 * $days[6][0]] = $_POST["email". $i];
-                    $days[6][9 + 10 * $days[6][0]] = $_POST["notes". $i];
+                    $days[6][9 + 10 * $days[6][0]] = $_POST["location". $i];
+                    $days[6][10 + 10 * $days[6][0]] = $_POST["notes". $i];
                     $days[6][0]++;
                     
                     break;
@@ -172,6 +180,8 @@
                 fwrite($Fhandle, $days[$i][8 + $j]);
                 fwrite($Fhandle, ",");
                 fwrite($Fhandle, $days[$i][9 + $j]);
+                fwrite($Fhandle, ",");
+                fwrite($Fhandle, $days[$i][10 + $j]);
                 fwrite($Fhandle, "\r\n");
             }
 		}
