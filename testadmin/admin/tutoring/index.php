@@ -97,6 +97,16 @@
     <h1>Edit Tutoring Schedule</h1>
 
     <main>
+        <div id="info">
+            <p>Hello, admin. Here you can edit the Computer Science tutor schedule! Here are some notes to help.</p>
+            <ul>
+                <li>All fields are required except the location and notes fields.</li>
+                <li>If you don't add time slots for Saturday or Sunday, those two days will not appear on the schedule.</li>
+                <li>As you add time slots on a day, slots earlier in the day may appear after those later in the day. The slots will be sorted
+                    by starting time before appearing on the schedule page.
+                </li>
+            </ul>
+        </div>
         <div class="container-fluid" id="schedule-container">
             <form id="time-form" action="newSched.php" method="POST">
             <div class="row">
