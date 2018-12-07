@@ -33,14 +33,12 @@ main {
     border-radius: 50%;
     margin: 2px;
 }
-
-/* Stuff Will Added */
 .timeBox {
     border: black 3px solid;
     width: 100%;
     margin-top: 4%;
     margin-bottom: 4%;
-    padding: 5s%;
+    padding: 5%;
     border-radius: 10px;
     background-color: rgba(78,77,179,.5);
 }
@@ -72,7 +70,7 @@ hr {
     padding: 2% 1% 2% 2%;
 }
 
-/* media queries to keep the items in the box */
+/* media queries to keep the text in the time-slot box */
 @media screen and (max-width: 1500px){
     .timeBox{
         font-size: 1vw;

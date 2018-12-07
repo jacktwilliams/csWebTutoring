@@ -1,3 +1,7 @@
+<!-- This page writes tutor time slot form data (from index.php) to a file.
+    It sorts the slots based on starting time. The front-facing tutor schedule page and the
+    index page will read from the save-file. 
+-->
 <?php
 	$File = "csTutorSchedule.txt";
 	$Fhandle = fopen($File, "w");
