@@ -177,4 +177,4 @@
 	fclose($Fhandle);
 ?>
 
-<a href="Tutoring page">Click here to go to the tutoring page. (file name neeeds to be added)</a>
+<a href="../../../testFrontEnd/schedule.php">Click here to go to the tutoring page. (file name neeeds to be added)</a>

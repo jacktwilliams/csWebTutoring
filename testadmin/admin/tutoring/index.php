@@ -47,7 +47,7 @@
     "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
     "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
-    $fname = "testSched.txt";
+    $fname = "Schedule.txt";
     $file = fopen($fname, "r");
     $i = 1;
     if($file) {
