@@ -17,10 +17,11 @@
         define("CLASSN", 1);
         define("TUTOR", 2);
         define("STARTT", 3);
-        define("ENDT", 4);
-        //this is for the intial part of the chunk. Start Chunk/end chunk
-        //define("STARTC", "<div class='timeBox'>");
-        //define("ENDC", "</div>");
+        define("STARTP",4);
+        define("ENDT", 5);
+        define("ENDP",6);
+        define("EMAIL",7);
+        define("NOTES",8);
         
         $classes = array();
         //read file here
@@ -55,13 +56,30 @@
                 
                 $tutor = $line[TUTOR];
                 $startT = $line[STARTT];
+                $startP = $line[STARTP];
                 $endT = $line[ENDT];
+                $endP = $line[ENDP];
+                $email = $line[EMAIL];
+                $notes = $line[NOTES];
+                //makes the Notes: not appear if the string is empty
+                if(trim($notes) != ""){
+                    $notes = "Note: " . $notes;
+                }
+                if(trim($email) != ""){
+                    $email = "<a href='mailto:$email'>Email</a>";
+                }
+                else{
+                    $email = "<div></div>";
+                }
+                
                 //makes a new chunk (box)
-                $newChunk = "<div class='timeBox $classN'>" . 
+                $newChunk = "<div class='timeBox $classN'>" .
                                 "<div class='box-text'>" .
                                     "<div>$tutor</div>" . 
                                     "<div>$classN</div>" .
-                                    "<div>$startT - $endT</div>" .
+                                    "<div>$startT$startP - $endT$endP</div>" .
+                                    $email .
+                                    "<div>$notes</div>" .
                                 "</div>" .
                             "</div>";
                 //stores all boxes under a Day array
