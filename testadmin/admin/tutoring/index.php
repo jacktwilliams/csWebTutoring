@@ -27,26 +27,26 @@
     define("NOTES", 9);
     /*Define a different set of <Select> <option>'s for each day. We need to have the default option be the day we are adding to.*/
     $options = ["Sunday" => "<option value=\"Sunday\" selected=\"selected\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Monday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\" selected=\"selected\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Tuesday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\" selected=\"selected\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Wednesday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\" selected=\"selected\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Thursday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\" selected=\"selected\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Friday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\" selected=\"selected\">Friday</option><option value=\"Saturday\">Saturday</option>", 
-    "Saturday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
-    "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
-    "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Monday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\" selected=\"selected\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Tuesday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\" selected=\"selected\">Tuesday</option>" .
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Wednesday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
+        "<option value=\"Wednesday\" selected=\"selected\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Thursday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\" selected=\"selected\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Friday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\" selected=\"selected\">Friday</option><option value=\"Saturday\">Saturday</option>", 
+        "Saturday" => "<option value=\"Sunday\">Sunday</option><option value=\"Monday\">Monday</option><option value=\"Tuesday\">Tuesday</option>" .
+        "<option value=\"Wednesday\">Wednesday</option><option value=\"Thursday\">Thursday</option>" . 
+        "<option value=\"Friday\">Friday</option><option value=\"Saturday\" selected=\"selected\">Saturday</option>"];
     $slotChunks = ["Sunday" => "", "Monday" => "", "Tuesday" => "", "Wednesday" => "", "Thursday" => "", "Friday" => "", "Saturday" => ""];
     $fname = "csTutorSchedule.txt";
     @$file = fopen($fname, "r"); //suppress file not found warning.
