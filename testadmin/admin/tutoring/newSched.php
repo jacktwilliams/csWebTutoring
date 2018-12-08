@@ -135,26 +135,19 @@
     
     for($i = 0; $i < 7; $i++){//goes through each day
         if(isset($days[$i][4])){
-            for($j = 0; $j < $days[$i][0]; $j++){ //amount of dates on that day
-                if($days[$i][5 + $j * 10] == "PM"){
-                    $days[$i][4 + $j * 10] += 12;
-                }
-            }
             for($j = 0; $j < 100; $j++){
                 $temp = array();
                 if(isset($days[$i][4 + (10 * $j) + 10])){
-                    if($days[$i][4 + $j * 10] > $days[$i][(4 + $j * 10) + 10]){
+                    $nextPeriod = $days[$i][(5 + $j * 10) + 10];
+                    $thisPeriod = $days[$i][5 + $j * 10];
+                    $thisComesBefore = $thisPeriod == "AM" && $nextPeriod == "PM";
+                    if($days[$i][4 + $j * 10] > $days[$i][(4 + $j * 10) + 10] && !$thisComesBefore) {
                         for($k = 1; $k < 10; $k++){
                             $temp[$k] = $days[$i][$k + $j * 10];
                             $days[$i][$k + $j * 10] = $days[$i][($k + $j * 10) + 10];
                             $days[$i][($k + $j * 10) + 10] = $temp[$k];
                         }
                     }
-                }
-            }
-            for($j = 0; $j < $days[$i][0]; $j++){ 
-                if($days[$i][5 + $j * 10] == "PM"){
-                    $days[$i][4 + $j * 10] -= 12;
                 }
             }
         }
