@@ -105,9 +105,6 @@
                 <li>As you add time slots on a day, slots earlier in the day may appear after those later in the day. The slots will be sorted
                     by starting time before appearing on the schedule page.
                 </li>
-                <li>Starting and ending times are not currently validated on this page. Saving your schedule with sessions 24 hours or longer
-                    (ex. 4pm - 2pm) may cause warnings upon saving or other unpredicted behavior. In general, the schedule will still appear as entered.
-                </li>
             </ul>
         </div>
         <div class="container-fluid" id="schedule-container">
