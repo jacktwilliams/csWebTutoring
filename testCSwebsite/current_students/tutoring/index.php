@@ -140,40 +140,40 @@
                     //Sunday only appears if there is a slot in Sun or Sat
                     $SunSlots = $slotChunks["Sunday"];
                     if($satOrSun){
-                        echo 
-                        "<div class='day-col col' id='Sun'>
+                        echo (
+                        "<div class='day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl' id='Sun'>
                             <div class='day-name'>Sunday</div>
                             <div class='slots'>
-                               $SunSlots;
+                               $SunSlots
                             </div>
-                        </div>";
+                        </div>");
                     }
                     ?>
-                      <div class="day-col col" id="Mon">
+                      <div class="day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl" id="Mon">
                         <div class="day-name">Monday</div>
                         <div class="slots">
                            <?php echo($slotChunks["Monday"]); ?>
                         </div>
                     </div>
-                      <div class="day-col col" id="Tue">
+                      <div class="day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl" id="Tue">
                         <div class="day-name">Tuesday</div>
                         <div class="slots">
                            <?php echo($slotChunks["Tuesday"]); ?>
                         </div>
                     </div>
-                      <div class="day-col col" id="Wed">
+                      <div class="day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl" id="Wed">
                         <div class="day-name">Wednesday</div>
                         <div class="slots">
                            <?php echo($slotChunks["Wednesday"]); ?>
                         </div>
                     </div>
-                      <div class="day-col col" id="Thu">
+                      <div class="day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl" id="Thu">
                         <div class="day-name">Thursday</div>
                         <div class="slots">
                            <?php echo($slotChunks["Thursday"]); ?>
                         </div>
                     </div>
-                      <div class="day-col col" id="Fri">
+                      <div class="day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl" id="Fri">
                         <div class="day-name">Friday</div>
                         <div class="slots">
                             <?php echo($slotChunks["Friday"]); ?>
@@ -182,13 +182,13 @@
                     <?php
                     $SatSlots = $slotChunks["Saturday"];
                     if($satOrSun){
-                        echo
-                          "<div class='day-col col' id='Sat'>
+                        echo(
+                          "<div class='day-col col-xs-12 col-sm-12 col-md-6 col-lg col-xl' id='Sat'>
                             <div class='day-name'>Saturday</div>
                             <div class='slots'>
                                $SatSlots
                             </div>
-                        </div>";
+                        </div>");
                     }
                     ?>
                     
